@@ -12,8 +12,8 @@ import (
 
 type General struct{}
 
-func (g General) FilterKeyAndValues(_ *analysis.Pass, keyAndValues []ast.Expr) []ast.Expr {
-	return keyAndValues
+func (g General) FilterKeyAndValues(pass *analysis.Pass, keyAndValues []ast.Expr) []ast.Expr {
+	return filterKeyAndValues(pass, keyAndValues, "Field")
 }
 
 func (g General) CheckLoggingKey(pass *analysis.Pass, keyAndValues []ast.Expr) {
